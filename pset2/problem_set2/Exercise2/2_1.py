@@ -16,8 +16,21 @@ k=4
 kmers4=list(itertools.product(bases, repeat=k))
 
 #build lists
-trainingdata = open(sys.argv[1]).readlines()
+trainingdata = open(sys.argv[1]).readlines() #data is 1-2176
 traininglabels = open(sys.argv[2]).readlines()
-testdata = open(sys.argv[3]).readlines()
+testdata = open(sys.argv[3]).readlines() #1-1001
 testlabels = open(sys.argv[4]).readlines()
 
+print(kmer(trainingdata, 2)
+#test = CountVectorizer(vocabulary=kmers2)
+#X = test.fit_transform("".join(trainingdata)).toarray()
+#print(X)
+
+def kmer(data, k):
+	dict = {}
+	for x in range(1, len(data)):
+		temp = data[x]
+		for y in range(len(temp)+1-k):
+			kmer = dna[y:y+k]
+			dict[kmer]=dict.get(kmer, 0) + 1
+	return dict
