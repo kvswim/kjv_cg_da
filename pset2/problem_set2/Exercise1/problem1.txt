@@ -1,0 +1,10 @@
+Kyle Verdeyen
+Pset2 Exercise 1
+
+a) y|x~N(B+sum(BjXj, sigma^2)
+argmin-sum((log(1/sqrt(2pi)r^2)*exp((-1/2sigma^2)*(y-B-sum(XjBj))^2)
+argmin - sum(logc-1/2pi^2(y-(B-sum(XjBj))^2)
+argmin sum(y-(B+sum(XjBj))^2)
+
+b) The ridge regression loss function serves to calculate the penalty incurred by 
+estimating with a linear regression function such a sshown above. 

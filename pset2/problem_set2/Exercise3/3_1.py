@@ -59,4 +59,13 @@ print('Strongly correlated PC count:', count)
 
 #3.5
 phen = np.genfromtxt(sys.argv[3], delimiter='\t',  skip_header=1, usecols =(1))
-print(len(phen))
+print('#3.5:')
+for x in range(0,len(phen)):
+	for j in range(0,3):
+		pearson = pearsonr(phen, covs[j])
+		print(pearson)
+
+#I don't think data is confounded as the numbe of significant genes
+#is similar to what we found in 3.4
+
+#3.6
