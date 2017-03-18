@@ -8,7 +8,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import sys
 from sklearn.decomposition import PCA
-
+from scipy.stats import pearsonr
 #load counts.txt, perform transforms and transpose
 counts = np.loadtxt(sys.argv[1], skiprows=1, usecols=range(1,74), ndmin=2)
 #first transform
@@ -32,6 +32,7 @@ print('Variance')
 print(pca.explained_variance_ratio_)
 
 #3.3
+print('3.3 disabled with Agg for ugrad, see code')
 plt.figure()
 pca = PCA(n_components = 2)
 pca.fit(counts)
@@ -43,6 +44,19 @@ plt.show()
 #3.4
 pca = PCA(n_components = 10)
 pca.fit(counts)
-covs = np.loadtxt(sys.argv[2], skiprows=1, usecols=range(1, 73))
+covs = np.loadtxt(sys.argv[2], skiprows=1, usecols=range(1, 74))
 X = pca.components_
-print(len(X))
+count = 0
+print('#3.4:')
+#hard coded indices because i'm a heathen
+for i in range(0,10):
+	for j in range(0,3):
+		pearson = pearsonr(X[i], covs[j])
+		print(pearson)
+		if(abs(pearson[0])>0.2 and pearson[1] < 0.05):
+			count=count+1 
+print('Strongly correlated PC count:', count)
+
+#3.5
+phen = np.genfromtxt(sys.argv[3], delimiter='\t',  skip_header=1, usecols =(1))
+print(len(phen))
