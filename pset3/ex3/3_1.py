@@ -7,9 +7,12 @@ import matplotlib.pyplot as plt
 from sklearn.mixture import GaussianMixture
 
 def myGMM(data, k, max_iter, conv_tol):
-	n = range(data)
-	d = range(data[0])
-	
+	gaussmix = GaussianMixture(n_components=k, max_iter=max_iter, reg_covar=conv_tol).fit(data)
+	pi = gaussmix.weights_
+	mean = gaussmix.means_
+	z = gaussmix.score_samples
+	print(type(z))
+#assign = max(z[len(data),:])
 
-input = np.loadtxt(sys.argv[1], skiprows=1, usecols=range(2,11), ndmin=2)
-#gmm = myGMM(input, 3, 100, 1e-6)
+input = np.loadtxt(sys.argv[1], skiprows=1, usecols=range(2,11), ndmin=2, delimiter=',')
+gmm = myGMM(input, 3, 100, 1e-6)
