@@ -9,6 +9,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from sklearn.mixture import GaussianMixture
 
+#3.1
 def myGMM(data, k, max_iter, conv_tol):
 	gaussmix = GaussianMixture(n_components=k, max_iter=max_iter, reg_covar=conv_tol)
 	gaussmix.fit(data)
@@ -21,6 +22,15 @@ def myGMM(data, k, max_iter, conv_tol):
 	return{'pi':pi, 'mean':mean, 'z':z, 'assign':assign}
 
 
+#3.2
 input = np.loadtxt(sys.argv[1], delimiter=',', ndmin=2, skiprows=1, usecols=range(2, 12))
 gmm = myGMM(input, 3, 100, 1e-6)
-print(gmm['pi'])
+print('Number of samples in each component:')
+print(len(gmm['mean']))
+
+#3.3
+X = input[2]
+Y = input[3]
+plt.figure()
+plt.plot(X, Y)
+plt.show()
