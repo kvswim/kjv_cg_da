@@ -28,6 +28,7 @@ gmm = myGMM(input, 3, 100, 1e-6)
 print('Number of samples in each component:')
 print(len(gmm['mean']))
 
+
 #3.3
 X = input[2]
 Y = input[3]
