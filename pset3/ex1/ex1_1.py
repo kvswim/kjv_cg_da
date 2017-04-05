@@ -34,3 +34,6 @@ plt.title('PCA 2b')
 plt.plot(X,Y)
 plt.show()
 
+#1.3
+plt.figure()
+
