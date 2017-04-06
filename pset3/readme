@@ -7,3 +7,23 @@ Exercise 1
 than the features. Part A is more useful.
 
 
+Exercise 2.2: The signs invert depending on the input matrix.
+A positive covariance matrix will result in a negative
+inverse covariance matrix and vice versa. This means we 
+can conclude that if the inverse covariance matrix shows
+a negative edge/correlation, the input gene pair was positive
+in its raw normalized state, and also the other way around.
+A positive normalized value and a negative edge can lead to
+lower loss in a training function. 
+
+Exercise 4.1b ii: 
+#Pearson correlations are too low for any values...don't know why? this should work...probably
+#only values abs(val) above any t are just identities=1
+#regression code is below but won't work because of above.
+#lr = LogisticRegression()
+#lr.fit(edge_data,pearson_data)
+
+#4.3
+#a: glasso: some edges, wgcna has less/none
+#b: all edges in wgcna are in glasso (identities)
+#c: ???
