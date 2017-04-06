@@ -1,6 +1,7 @@
 #Kyle Verdeyen
 #Problem set 3, exercise 1
 #Computational Genomics: Data Analysis
+#kverdey1@jhu.edu
 #usage: ex1_1.py genotype_population.csv population_info.csv
 
 import numpy as np

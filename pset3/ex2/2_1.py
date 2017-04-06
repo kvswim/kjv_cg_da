@@ -1,6 +1,7 @@
 #Kyle Verdeyen
 #Comuptational Genomics: Data Analysis
-#Exercise 2
+#Problem Set 3, Exercise 2
+#kverdey1@jhu.edu
 #Usage: python 2_1.py
 import numpy as np
 from numpy.linalg import inv

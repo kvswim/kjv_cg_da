@@ -1,6 +1,7 @@
 #Kyle Verdeyen
 #Problem Set 3, Exercise 3
 #Computational Genomics: Data Analysis
+#kverdey1@jhu.edu
 #usage: python 3_1.py gmm.csv
 import numpy as np
 import sys

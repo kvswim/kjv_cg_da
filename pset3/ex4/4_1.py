@@ -1,3 +1,7 @@
+#Kyle Verdeyen
+#Computational Genomics Data Analysis
+#Problem Set 3, exercise 4
+#kverdey1@jhu.edu
 #usage: python 4_1.py expr_ceph_utah_1000.txt
 import numpy as np
 import sys
@@ -34,22 +38,32 @@ pearson_data = temp
 
 
 #4.2 (Graphical lasso)
+
 #4.2.a
 data = np.loadtxt(sys.argv[1], skiprows=1, usecols=range(1,1001), ndmin=2)
 glasso = GraphLasso(alpha=0.55, tol=1e-4).fit(data)
 glasso_cov = glasso.covariance_ #cov matrix
 glasso_pre = glasso.precision_ #precision
+
 #4.2.b
+print('4.2.b:')
 print(glasso_cov[0,0:4])
 print(glasso_cov[1,0:4])
 print(glasso_cov[2,0:4])
 print(glasso_cov[3,0:4])
 print(glasso_cov[4,0:4])
+
 #4.2.c
 with open(sys.argv[1], 'r') as line:
 	first_line = line.readline()
 first_col = np.genfromtxt(sys.argv[1], skip_header=1, usecols=range(0), dtype='str') #supposed to only read the first col but whatever
-#glasso_net = plt.hist(first_line, first_col) #doesn't work
+plt.figure()
+#y_axis = np.arange(1, len(first_line) + 1, 1)
+#plt.barh(y_axis, first_col)
+#plt.yticks(y_axis, first_line)
+#plt.hist(first_line, first_col) #doesn't work
+#plt.show()
+
 
 #4.3
 #a: glasso: some edges, wgcna has less/none

@@ -2,11 +2,32 @@ Kyle Verdeyen
 Computational Genomics Data Analysis
 Problem Set 3
 
+See python files for more detail-plots not attached due to 'agg'
+
 Exercise 1
 2b: The difference is that part B highlights the top 20 samples rather
 than the features. Part A is more useful.
 
-
+Exercise 2.1:
+E1:
+[[ 1.      0.4328]
+ [ 0.4328  1.    ]]
+E-1:
+[[ 1.23049033 -0.53255621]
+ [-0.53255621  1.23049033]]
+E2:
+[[ 1.     -0.3184]
+ [-0.3184  1.    ]]
+E-2:
+[[ 1.11281565  0.3543205 ]
+ [ 0.3543205   1.11281565]]
+E3:
+[[ 1.     0.517]
+ [ 0.517  1.   ]]
+E-3:
+[[ 1.36479458 -0.7055988 ]
+ [-0.7055988   1.36479458]]
+ 
 Exercise 2.2: The signs invert depending on the input matrix.
 A positive covariance matrix will result in a negative
 inverse covariance matrix and vice versa. This means we 
@@ -16,6 +37,11 @@ in its raw normalized state, and also the other way around.
 A positive normalized value and a negative edge can lead to
 lower loss in a training function. 
 
+Exercise 3: 
+Number of samples in each component:
+10
+
+
 Exercise 4.1b ii: 
 #Pearson correlations are too low for any values...don't know why? this should work...probably
 #only values abs(val) above any t are just identities=1
@@ -23,7 +49,16 @@ Exercise 4.1b ii:
 #lr = LogisticRegression()
 #lr.fit(edge_data,pearson_data)
 
-#4.3
+Exercise 4.2:
+4.2.b:
+[ 0.99324324  0.          0.          0.        ]
+[ 0.          0.99324324  0.          0.        ]
+[ 0.          0.          0.99324324  0.        ]
+[ 0.          0.          0.          0.99324324]
+[ 0.  0.  0.  0.]
+
+
+Exercise 4.3:
 #a: glasso: some edges, wgcna has less/none
 #b: all edges in wgcna are in glasso (identities)
 #c: ???
