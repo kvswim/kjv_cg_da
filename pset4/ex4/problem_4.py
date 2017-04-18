@@ -67,6 +67,7 @@ mlp.fit(X,Y)
 prediction = mlp.predict(A)
 error = np.mean(prediction != B)
 logistic.append(error)
+print('Iter = 10000:')
 print('RELU errors:',relu)
 print('logistic errors:', logistic)
 
@@ -87,3 +88,70 @@ plt.title('Error for Logistic')
 plt.plot(graphX, graphY)
 plt.show()
 
+
+
+#4.2: see problem4_answers
+
+
+
+#4.3: iter=200
+relu = [] #reset collection
+logistic = []
+mlp = MLPClassifier(hidden_layer_sizes=one, activation='relu', random_state=2, max_iter=200)
+mlp.fit(X,Y)
+prediction = mlp.predict(A)
+error = np.mean(prediction != B)
+relu.append(error)
+mlp = MLPClassifier(hidden_layer_sizes=two, activation='relu', random_state=2, max_iter=200)
+mlp.fit(X,Y)
+prediction = mlp.predict(A)
+error = np.mean(prediction != B)
+relu.append(error)
+mlp = MLPClassifier(hidden_layer_sizes=sixteen, activation='relu', random_state=2, max_iter=200)
+mlp.fit(X,Y)
+prediction = mlp.predict(A)
+error = np.mean(prediction != B)
+relu.append(error)
+mlp = MLPClassifier(hidden_layer_sizes=thirtytwo, activation='relu', random_state=2, max_iter=200)
+mlp.fit(X,Y)
+prediction = mlp.predict(A)
+error = np.mean(prediction != B)
+relu.append(error)
+mlp = MLPClassifier(hidden_layer_sizes=one, activation='logistic', random_state=2, max_iter=200)
+mlp.fit(X,Y)
+prediction = mlp.predict(A)
+error = np.mean(prediction != B)
+logistic.append(error)
+mlp = MLPClassifier(hidden_layer_sizes=two, activation='logistic', random_state=2, max_iter=200)
+mlp.fit(X,Y)
+prediction = mlp.predict(A)
+error = np.mean(prediction != B)
+logistic.append(error)
+mlp = MLPClassifier(hidden_layer_sizes=sixteen, activation='logistic', random_state=2, max_iter=200)
+mlp.fit(X,Y)
+prediction = mlp.predict(A)
+error = np.mean(prediction != B)
+logistic.append(error)
+mlp = MLPClassifier(hidden_layer_sizes=thirtytwo, activation='logistic', random_state=2, max_iter=200)
+mlp.fit(X,Y)
+prediction = mlp.predict(A)
+error = np.mean(prediction != B)
+logistic.append(error)
+print('Iter = 200:')
+print('RELU errors:',relu)
+print('logistic errors:', logistic)
+
+#relu plot iter=200
+plt.figure()
+graphX = [1,2,16,32]
+graphY = relu
+plt.title('Error for RELU')
+plt.plot(graphX, graphY)
+plt.show()
+
+#logistic plot iter=200
+plt.figure()
+graphY = logistic
+plt.title('Error for Logistic')
+plt.plot(graphX, graphY)
+plt.show()
