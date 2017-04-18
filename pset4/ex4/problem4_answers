@@ -1,0 +1,15 @@
+Kyle Verdeyen
+Computational Genomics Data Analysis
+Problem Set 4 Exercise 4
+
+4.1. ('RELU errors:', [0.32000000000000001, 0.34000000000000002, 0.32000000000000001, 0.47999999999999998])
+('logistic errors:', [0.29999999999999999, 0.34000000000000002, 0.47999999999999998, 0.47999999999999998])
+Plot code exists but is using 'Agg'
+
+4.2. Error seems to increase, but not always. This might be due to the additional uncertainty caused
+by using more hidden layers in the neural network, or error due to backpropagation (see Lecture 12 slides 11-13).
+This isn't what my normal instinct would suggest since an increased number of hidden layers increases the parity
+of a model, but is nonetheless true since forward layers are codependent on those that are before it.
+
+
+
