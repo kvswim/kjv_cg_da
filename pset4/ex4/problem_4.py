@@ -8,13 +8,21 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPClassifier
+from sklearn.preprocessing import normalize
+from scipy import stats
 
-phen_train = np.genfromtxt(sys.argv[1], delimiter=',', skip_header=1, usecols=(1))
-train_expression = np.loadtxt(sys.argv[3], delimiter=',', skiprows=1, usecols=range(1,146), ndmin = 2)
-phen_test = np.genfromtxt(sys.argv[2], delimiter=',', skip_header=1, usecols=(1))
-test_expression = np.loadtxt(sys.argv[4], delimiter=',', skiprows=1, usecols=range(1,51), ndmin=2)
-X, Y = train_expression.T, phen_train
-A, B = test_expression.T, phen_test
+phen_train = np.genfromtxt(sys.argv[1], delimiter=',', skip_header=1, usecols=(1), dtype='float')
+#phen_train = stats.zscore(phen_train)
+train_expression = np.loadtxt(sys.argv[3], delimiter=',', skiprows=1, usecols=range(1,146), ndmin = 2, dtype='float')
+train_expression = stats.zscore(train_expression)
+phen_test = np.genfromtxt(sys.argv[2], delimiter=',', skip_header=1, usecols=(1), dtype='float')
+#phen_test = stats.zscore(phen_test)
+test_expression = np.loadtxt(sys.argv[4], delimiter=',', skiprows=1, usecols=range(1,51), ndmin=2, dtype='float')
+test_expression = stats.zscore(test_expression)
+X = train_expression.T
+Y = phen_train
+A = test_expression.T
+B =  phen_test
 #50 neuron layers, hidden_layer_sizes takes a tuple of #of neurons for # of layers
 one = (50)
 two = (50,50)

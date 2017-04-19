@@ -4,27 +4,29 @@ Problem Set 4 Exercise 4
 
 4.1. 
 Iter = 10000:
-('RELU errors:', [0.32000000000000001, 0.34000000000000002, 0.32000000000000001, 0.47999999999999998])
-('logistic errors:', [0.29999999999999999, 0.34000000000000002, 0.47999999999999998, 0.47999999999999998])
+('RELU errors:', [0.28000000000000003, 0.32000000000000001, 0.34000000000000002, 0.47999999999999998])
+('logistic errors:', [0.32000000000000001, 0.32000000000000001, 0.47999999999999998, 0.47999999999999998])
 Plot code exists but is using 'Agg'
 
 4.2. 
-Error seems to increase, but not always. This might be due to the additional uncertainty caused
+Error seems to increase, but not always (stabilizes with higher layers). This might be due to the additional uncertainty caused
 by using more hidden layers in the neural network, or error due to backpropagation (see Lecture 12 slides 11-13).
 This isn't what my normal instinct would suggest since an increased number of hidden layers increases the parity
 of a model, but is nonetheless true since forward layers are codependent on those that are before it (maybe error
-can compound with more layers?).
+can compound with more layers?). Also overfitting with more layers than necessary can progressively increase error.
 
 4.3. 
 Iter = 200:
-('RELU errors:', [0.32000000000000001, 0.34000000000000002, 0.32000000000000001, 0.47999999999999998])
-('logistic errors:', [0.28000000000000003, 0.35999999999999999, 0.47999999999999998, 0.47999999999999998])
+('RELU errors:', [0.29999999999999999, 0.32000000000000001, 0.34000000000000002, 0.47999999999999998])
+('logistic errors:', [0.29999999999999999, 0.38, 0.47999999999999998, 0.47999999999999998])
 Python now gives me this error:
 /usr/lib64/python2.7/site-packages/sklearn/neural_network/multilayer_perceptron.py:563: ConvergenceWarning: Stochastic Optimizer: Maximum iterations reached and the optimization hasn't converged yet.
   % (), ConvergenceWarning)
 If we turn verbose=True, we can see that the tolerance is still improving >.0001 by the 200th iteration
 which is not enough to call the set converged. This means the MLP is not fully solved before stopping.
-Error still increases with # of layers, the only difference is the amount of error on the Logistic activator
-for 1 and 2 layers, which have decreased and increased respectively from their 10k iter counterparts.
+Error still increases with # of layers, and logistic lowers error for 1 layer but increases for 2 layer as opposed to iter=10k.
 This might be due to the algorithm design of the activator. Another theory is that low layer counts
-show more error when they aren't fully converged, but can stabilize when parity (layers) increase.
+show less/more error when they aren't fully converged, but can stabilize when parity (layers) increase.
+This can be seen with the improvement of a single layer, but worsening of 2 layers, then similar error
+for many hidden layers.
+Also overfitting, or maybe even coincidence?
